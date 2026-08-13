@@ -9,12 +9,12 @@
    navegador de cada pessoa (modo local). Veja o GUIA-DE-PUBLICACAO.md
    para os passos de como criar o projeto Firebase e colar as chaves aqui. */
 const firebaseConfig = {
-  apiKey: "COLE_AQUI_SUA_API_KEY",
-  authDomain: "SEU_PROJETO.firebaseapp.com",
-  projectId: "SEU_PROJETO",
-  storageBucket: "SEU_PROJETO.appspot.com",
-  messagingSenderId: "SEU_SENDER_ID",
-  appId: "SEU_APP_ID",
+  apiKey: "AIzaSyC_I-lhPD-ArvqS0Io8V26MxtfxqRtvRq8",
+  authDomain: "ana-luiza-favato-hub.firebaseapp.com",
+  projectId: "ana-luiza-favato-hub",
+  storageBucket: "ana-luiza-favato-hub.firebasestorage.app",
+  messagingSenderId: "110638465094",
+  appId: "1:110638465094:web:191c71470832314ac40a47",
 };
 
 const DOC_COLLECTION = "dashboards";
