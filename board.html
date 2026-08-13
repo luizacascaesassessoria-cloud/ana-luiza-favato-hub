@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quadro de entregas · Hub Ana Luiza Favato</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="board">
+
+<div class="local-banner" id="local-banner"><strong>Modo local.</strong> Configure o Firebase (veja o GUIA-DE-PUBLICACAO.md) para sincronizar as edições com toda a equipe.</div>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img class="brand-mark" src="assets/monograma-bordo.png" alt="Ana Luiza Favato">
+    <div class="brand-text"><b>Ana Luiza Favato</b><span>Hub Estratégico</span></div>
+  </a>
+  <nav class="topnav">
+    <a href="index.html" data-nav="home">Início</a>
+    <a href="estrategia.html" data-nav="estrategia">Estratégia</a>
+    <a href="board.html" data-nav="board">Quadro</a>
+    <a href="conteudo.html" data-nav="conteudo">Conteúdo</a>
+    <a href="calendario.html" data-nav="calendario">Calendário</a>
+    <a href="equipe.html" data-nav="equipe">Equipe</a>
+    <a href="documentos.html" data-nav="documentos">Documentos</a>
+    <a href="insumos.html" data-nav="insumos">Insumos</a>
+  </nav>
+  <div class="sync-pill local"><span class="sync-dot"></span><span class="sync-text">Modo local</span></div>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-text">
+    <span class="page-kicker">Acompanhamento</span>
+    <h1>Quadro de entregas</h1>
+    <p>Arraste os cards entre as colunas conforme o andamento. Clique em "+ Nova entrega" para adicionar algo novo, ou em "Editar" e "Excluir" num card existente.</p>
+  </div>
+  <img class="page-hero-symbol" src="assets/simbolo-secundario.png" alt="">
+</section>
+
+<section class="section">
+  <div id="board-root"></div>
+</section>
+
+<footer>
+  <img src="assets/wordmark-areia.png" alt="Ana Luiza Favato">
+  <p>Hub estratégico colaborativo de <b>Ana Luiza Favato</b>, Luiza Cascaes e Agência Traço</p>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    hubSetActiveNav("board");
+    Hub.init();
+    Hub.onChange((state) => { renderBoard(document.getElementById("board-root"), state); });
+  });
+</script>
+</body>
+</html>

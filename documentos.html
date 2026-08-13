@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentos · Hub Ana Luiza Favato</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="documentos">
+
+<div class="local-banner" id="local-banner"><strong>Modo local.</strong> Configure o Firebase (veja o GUIA-DE-PUBLICACAO.md) para sincronizar as edições com toda a equipe.</div>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img class="brand-mark" src="assets/monograma-bordo.png" alt="Ana Luiza Favato">
+    <div class="brand-text"><b>Ana Luiza Favato</b><span>Hub Estratégico</span></div>
+  </a>
+  <nav class="topnav">
+    <a href="index.html" data-nav="home">Início</a>
+    <a href="estrategia.html" data-nav="estrategia">Estratégia</a>
+    <a href="board.html" data-nav="board">Quadro</a>
+    <a href="conteudo.html" data-nav="conteudo">Conteúdo</a>
+    <a href="calendario.html" data-nav="calendario">Calendário</a>
+    <a href="equipe.html" data-nav="equipe">Equipe</a>
+    <a href="documentos.html" data-nav="documentos">Documentos</a>
+    <a href="insumos.html" data-nav="insumos">Insumos</a>
+  </nav>
+  <div class="sync-pill local"><span class="sync-dot"></span><span class="sync-text">Modo local</span></div>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-text">
+    <span class="page-kicker">Material de apoio</span>
+    <h1>Documentos</h1>
+    <p>A identidade de marca, o vídeo manifesto, o portfólio e a proposta comercial que Ana usa com os próprios clientes de relações públicas e curadoria de eventos.</p>
+  </div>
+  <img class="page-hero-symbol" src="assets/simbolo-secundario.png" alt="">
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="section-head-text">
+      <span class="section-kicker">Manual de identidade visual</span>
+      <h2>Identidade de marca</h2>
+      <p>Resumo do MIV desenvolvido pela Agência Traço: posicionamento, missão, visão, valores, paleta oficial e tipografia.</p>
+    </div>
+  </div>
+  <div class="doc-card open" style="margin-bottom:0">
+    <div class="doc-head" style="cursor:default"><b>Ana Luiza Favato · Manual de Identidade Visual</b></div>
+    <div class="doc-body" style="max-height:none;padding-bottom:22px">
+      <a class="manual-cover-link" href="assets/manual-identidade-visual.pdf" target="_blank" rel="noopener">
+        <img src="assets/cover-miv.jpg" alt="Capa do Manual de Identidade Visual">
+        <span class="manual-cover-cta">Abrir o manual completo em PDF
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </span>
+      </a>
+      <p id="marca-posicionamento"></p>
+      <div id="marca-root"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="section-head-text">
+      <span class="section-kicker">Audiovisual</span>
+      <h2>Vídeo Manifesto</h2>
+    </div>
+  </div>
+  <div id="video-root"></div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="section-head-text">
+      <span class="section-kicker">Em andamento</span>
+      <h2>Portfólio</h2>
+    </div>
+  </div>
+  <div id="portfolio-root"></div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="section-head-text">
+      <span class="section-kicker">Proposta comercial</span>
+      <h2>Como Ana propõe os próprios serviços</h2>
+    </div>
+  </div>
+  <div id="docs-root"></div>
+</section>
+
+<footer>
+  <img src="assets/wordmark-areia.png" alt="Ana Luiza Favato">
+  <p>Hub estratégico colaborativo de <b>Ana Luiza Favato</b>, Luiza Cascaes e Agência Traço</p>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    hubSetActiveNav("documentos");
+    document.getElementById("marca-posicionamento").textContent = DATA.marca.posicionamento;
+    renderMarca(document.getElementById("marca-root"));
+    renderDocumentos(document.getElementById("docs-root"));
+
+    const vm = DATA.documentosExtras.videoManifesto;
+    document.getElementById("video-root").innerHTML = `
+      <div class="video-card">
+        <video controls loop muted playsinline src="${vm.arquivo}"></video>
+        <b>${vm.titulo}</b>
+        <p>${vm.desc}</p>
+      </div>`;
+
+    const pf = DATA.documentosExtras.portfolio;
+    document.getElementById("portfolio-root").innerHTML = `
+      <div class="video-card">
+        <span class="status-chip">${pf.status}</span>
+        <b>${pf.titulo}</b>
+        <p>${pf.desc}</p>
+      </div>`;
+
+    Hub.init();
+  });
+</script>
+</body>
+</html>
